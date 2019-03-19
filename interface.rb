@@ -21,4 +21,8 @@ class Interface
 			end
 		end
 	end
+
+	def sort_by_gender_and_last_name
+		@data.sort_by{ |person| [person.gender, person.last_name] }
+	end
 end

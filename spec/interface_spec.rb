@@ -42,4 +42,24 @@ describe Interface do
 		end
 	end
 
+	describe "#sort_by_gender_and_last_name" do
+		it "prioritizes females before males" do
+			@interface.load_data("people.csv")
+			first_person = @interface.sort_by_gender_and_last_name.first
+			expect(first_person.gender).to eq "Female"
+			last_person = @interface.sort_by_gender_and_last_name.last
+			expect(last_person.gender).to eq "Male"
+		end
+
+		it "alphabetizes names after gender sort" do
+			@interface.load_data("people.csv")
+			first_person = @interface.sort_by_gender_and_last_name.first
+			first_person_name = "#{first_person.first_name} #{first_person.last_name}"			
+			expect(first_person_name).to eq "Darius Auer"
+			last_person = @interface.sort_by_gender_and_last_name.last
+			last_person_name = "#{last_person.first_name} #{last_person.last_name}"			
+			expect(last_person_name).to eq "Arthur Ziemann"
+		end
+	end
+
 end
