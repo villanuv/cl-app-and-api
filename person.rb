@@ -8,6 +8,6 @@ class Person
 		@last_name = last_name
 		@gender = gender
 		@color = color
-		@birthdate = birthdate
+		@birthdate = Date.strptime(birthdate, "%m/%d/%Y")
 	end
 end

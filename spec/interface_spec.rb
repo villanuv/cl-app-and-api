@@ -1,3 +1,4 @@
+require 'spec_helper'
 require './interface'
 
 describe Interface do
@@ -62,4 +63,15 @@ describe Interface do
 		end
 	end
 
+	describe "#sort_by_birthdate" do
+		it "prioritizes older birthdates" do
+			@interface.load_data("people.csv")
+			oldest_person = @interface.sort_by_birthdate.first
+			oldest_person_birthdate = oldest_person.birthdate.strftime("%m/%d/%Y")
+			expect(oldest_person_birthdate).to eq "08/12/1922"
+			youngest_person = @interface.sort_by_birthdate.last
+			youngest_person_birthdate = youngest_person.birthdate.strftime("%m/%d/%Y")
+			expect(youngest_person_birthdate).to eq "03/10/2001"
+		end
+	end
 end

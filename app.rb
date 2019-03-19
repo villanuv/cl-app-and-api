@@ -7,3 +7,4 @@ interface.load_data("people_pipe.csv")
 interface.load_data("people_space.csv")
 
 interface.sort_by_gender_and_last_name
+interface.sort_by_birthdate

@@ -1,3 +1,4 @@
+require 'spec_helper'
 require './person'
 
 describe Person do
@@ -28,7 +29,8 @@ describe Person do
 		end
 
 		it "assigns @birthdate" do
-			expect(@person.birthdate).to eq "01/01/1950"
+			date = @person.birthdate.strftime("%m/%d/%Y")
+			expect(date).to eq "01/01/1950"
 		end
 	end
 
