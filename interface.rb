@@ -29,4 +29,8 @@ class Interface
 	def sort_by_birthdate
 		@data.sort_by{ |person| person.birthdate }
 	end
+
+	def sort_by_last_name_desc
+		@data.sort_by{ |person| person.last_name }.reverse
+	end
 end

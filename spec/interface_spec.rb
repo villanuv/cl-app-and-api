@@ -74,4 +74,14 @@ describe Interface do
 			expect(youngest_person_birthdate).to eq "03/10/2001"
 		end
 	end
+
+	describe "#sort_by_last_name_desc" do
+		it "reverse alphabetizes last names" do
+			@interface.load_data("people.csv")
+			first_person = @interface.sort_by_last_name_desc.first
+			expect(first_person.last_name).to eq "Ziemann"
+			last_person = @interface.sort_by_last_name_desc.last
+			expect(last_person.last_name).to eq "Auer"
+		end
+	end
 end
