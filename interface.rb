@@ -35,6 +35,6 @@ class Interface
 	end
 
 	def print_records(data)
-		data.each{ |person| puts "#{person.first_name} #{person.last_name}, #{person.gender} - #{person.color} - #{person.birthdate}" }
+		data.each{ |person| puts "#{person.first_name} #{person.last_name}, #{person.gender} - #{person.color} - #{person.birthdate.strftime('%m/%d/%Y')}" }
 	end
 end
