@@ -33,4 +33,8 @@ class Interface
 	def sort_by_last_name_desc
 		@data.sort_by{ |person| person.last_name }.reverse
 	end
+
+	def print_records(data)
+		data.each{ |person| puts "#{person.first_name} #{person.last_name}, #{person.gender} - #{person.color} - #{person.birthdate}" }
+	end
 end
