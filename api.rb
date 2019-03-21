@@ -1,7 +1,5 @@
 require 'sinatra'
 require 'json'
-# require 'net/http'
-require 'uri'
 require './person'
 require './interface'
 
