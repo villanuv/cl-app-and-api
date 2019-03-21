@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'json'
+# require 'net/http'
+require 'uri'
 require './person'
 require './interface'
 
@@ -13,6 +15,11 @@ end
 
 get '/' do
 	'Guaranteed Rate API'
+end
+
+post '/records' do
+	data = params['person']
+	@interface.json_to_person(data)
 end
 
 get '/records/gender' do

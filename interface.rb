@@ -22,6 +22,17 @@ class Interface
 		end
 	end
 
+	def json_to_person(string)
+		if string.include? '|'
+			row = string.split(" | ")
+		elsif string.include? ' '
+			row = string.split(" ")
+		else
+			row = string.split(",")
+		end
+		@data << Person.new(row[1], row[0], row[2], row[3], row[4])
+	end
+
 	def sort_by_gender_and_last_name
 		@data.sort_by{ |person| [person.gender, person.last_name] }
 	end
@@ -35,6 +46,6 @@ class Interface
 	end
 
 	def print_records(data)
-		data.each{ |person| puts "#{person.first_name} #{person.last_name}, #{person.gender} - #{person.color} - #{person.birthdate.strftime('%m/%d/%Y')}" }
+		data.each{ |person| puts "#{person.first_name} #{person.last_name}, #{person.gender} - #{person.color} - #{person.birthdate.strftime('%m/%d')}" }
 	end
 end
